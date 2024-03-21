@@ -1,26 +1,26 @@
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<string | null>(null);
 
   useEffect(() => {
-   getData();
+    getData();
   }, []);
-  const getData=async()=>{
+
+  const getData = async () => {
     await fetch("https://test-backend-slyw.onrender.com/another", { headers: { authkey: "1234" } })
-    .then((res) => {
-      if (res.status !== 200) {
-        throw new Error(`HTTP error! status: ${res.status}`);
-      }
-      return res.text(); // Read response as text
-    })
-    .then((data) => {
-      console.log("Response from server:", data); // Log the response
-      setData(data); // Set the response data
-    })
-    .catch((error) => console.error("Fetch error:", error));
-  
-  }
+      .then((res) => {
+        if (res.status !== 200) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        return res.text(); // Read response as text
+      })
+      .then((data) => {
+        console.log("Response from server:", data); // Log the response
+        setData(data); // Set the response data
+      })
+      .catch((error) => console.error("Fetch error:", error));
+  };
 
   return (
     <div>
