@@ -30,7 +30,7 @@ export default function Home() {
           <pre>{JSON.stringify(data, null, 2)}</pre>
         </div>
       ) : (
-        <p>Loading...</p>
+        <p>Prodcheck</p>
       )}
     </div>
   );
