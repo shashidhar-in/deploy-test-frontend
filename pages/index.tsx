@@ -7,7 +7,7 @@ export default function Home() {
    getData();
   }, []);
   const getData=async()=>{
-    await fetch("http://localhost:8080/another", { headers: { authkey: "1234" } })
+    await fetch("https://test-backend-slyw.onrender.com/another", { headers: { authkey: "1234" } })
     .then((res) => {
       if (res.status !== 200) {
         throw new Error(`HTTP error! status: ${res.status}`);
